@@ -5,9 +5,11 @@ let scene, camera, renderer, cylinder, rect1, rect2, rect3, tapa, cilindroTapa, 
         scene.background = new THREE.Color("rgb(0, 160, 209)");
 
         camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 1, 1000);
-        camera.position.z = 15;
-        camera.position.y = 1;
-        camera.position.x = 1;
+        camera.position.z = 20;
+        camera.position.y = 2;
+        camera.position.x = 4;
+        let directionalLightUp = new THREE.DirectionalLight(0xffffff);
+        scene.add(directionalLightUp);
 
         createCylinder();
         createAgarradera();
@@ -52,15 +54,21 @@ let scene, camera, renderer, cylinder, rect1, rect2, rect3, tapa, cilindroTapa, 
 
     let createAgarradera = function(){
         let geometry = new THREE.BoxGeometry(0.4,3,0.3);
-        let material = new THREE.MeshBasicMaterial({color: "rgb(38, 43, 47)"});
+        let material = new THREE.MeshStandardMaterial({
+            side: THREE.DoubleSide,
+            color: "rgb(38, 43, 47)",
+            emissive: "rgb(255, 255, 255)",
+            emissiveIntensity: 0.5,
+            metalness: 1,
+        });
         rect1 = new THREE.Mesh(geometry, material);
 
         geometry = new THREE.BoxGeometry(1.4,0.3,0.3);
-        material = new THREE.MeshBasicMaterial({color: "rgb(38, 43, 47)"});
+        
         rect2 = new THREE.Mesh(geometry, material);
 
         geometry = new THREE.BoxGeometry(1.4,0.3,0.3);
-        material = new THREE.MeshBasicMaterial({color: "rgb(38, 43, 47)"});
+
         rect3 = new THREE.Mesh(geometry, material);
 
         scene.add(rect1);
@@ -70,35 +78,67 @@ let scene, camera, renderer, cylinder, rect1, rect2, rect3, tapa, cilindroTapa, 
 
     let createCylinder = function(){
         let geometry = new THREE.CylinderGeometry(1,1,4,32);
-        let material = new THREE.MeshBasicMaterial({color: "rgb(162, 166, 168)"});
+        let material = new THREE.MeshPhongMaterial({
+            side: THREE.DoubleSide,
+            color: "rgb(162, 166, 168)",
+            emissive: "rgb(255, 255, 255)",
+            emissiveIntensity: 0.5,
+            shininess: 100
+        });
         cylinder = new THREE.Mesh(geometry, material);
         scene.add(cylinder);
     };
 
     let agarreCyilinder = function(){
         let geometry = new THREE.CylinderGeometry(.1,.1,3.5,32);
-        let material = new THREE.MeshBasicMaterial({color: "rgb(96, 99,105)"});
+        let material = new THREE.MeshPhongMaterial({
+            side: THREE.DoubleSide,
+            color: "rgb(96, 99,105)",
+            emissive: "rgb(255, 255, 255)",
+            emissiveIntensity: 0.5,
+            metalness: 100
+        });
         cilindroTapa = new THREE.Mesh(geometry, material);
         scene.add(cilindroTapa);
     };
 
     let createEsfera = function(){
         let geometry = new THREE.SphereGeometry(0.2,32,32);
-        let material = new THREE.MeshBasicMaterial({color: "rgb(96, 99,105)"});
+        let material = new THREE.MeshPhongMaterial({
+            side: THREE.DoubleSide,
+            color: "rgb(96, 99,105)",
+            emissive: "rgb(255, 255, 255)",
+            emissiveIntensity: 0.5,
+            metalness: 100
+        });
         esfera = new THREE.Mesh(geometry, material);
         scene.add(esfera);
     };
     
     let createTapa = function(){
         let geometry = new THREE.CylinderGeometry(.8,1.3,.5,32);
-        let material = new THREE.MeshBasicMaterial({color: "rgb(96, 99,105)"});
+        let material = new THREE.MeshPhongMaterial({
+            side: THREE.DoubleSide,
+            color: "rgb(96, 99,105)",
+            emissive: "rgb(255, 255, 255)",
+            emissiveIntensity: 0.5,
+            metalness: 100
+        });
         tapa = new THREE.Mesh(geometry, material);
         scene.add(tapa);
     };
 
     let createBase = function(){
         let geometry = new THREE.BoxGeometry(7,4,9);
-        let material = new THREE.MeshBasicMaterial({color: "rgb(69, 42,37)"});
+        var cubeMaterials = [
+            new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('textures/wood.jpg'), side: THREE.DoubleSide}),
+            new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('textures/wood.jpg'), side: THREE.DoubleSide}),
+            new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('textures/wood.jpg'), side: THREE.DoubleSide}),
+            new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('textures/wood.jpg'), side: THREE.DoubleSide}),
+            new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('textures/wood.jpg'), side: THREE.DoubleSide}),
+            new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('textures/wood.jpg'), side: THREE.DoubleSide})
+        ];
+        let material = new THREE.MeshFaceMaterial(cubeMaterials);
         base = new THREE.Mesh(geometry, material);
         scene.add(base);
     };
@@ -109,6 +149,13 @@ let scene, camera, renderer, cylinder, rect1, rect2, rect3, tapa, cilindroTapa, 
         pata1 = new THREE.Mesh(geometry, material);
         scene.add(pata1);
 
+        material = new THREE.MeshPhongMaterial({
+            side: THREE.DoubleSide,
+            color: "rgb(96, 99,105)",
+            emissive: "rgb(255, 255, 255)",
+            emissiveIntensity: 0.5,
+            metalness: 100
+        });
         geometry = new THREE.CylinderGeometry(.1, .2, .3, 4, 1)
         material = new THREE.MeshBasicMaterial({color: "rgb(96, 99,105)"});
         pata2 = new THREE.Mesh(geometry, material);
