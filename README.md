@@ -2,8 +2,8 @@
 
 #### Guillermo Enrique Valles Villegas A01561722
 Proyecto final para la materia de Graficas Computacionales.\
-Consiste en crear una escena 3D en [WebGL](https://get.webgl.org), con el uso de [Three.js](https://threejs.org).\
-La escena consiste en una prensa francesa que sube y baja para aumentar la opacidad del café.
+Consiste en crear una escena 3D con [Three.js](https://threejs.org).\
+La escena es de una prensa francesa que sube y baja para aumentar la cantidad del café.
 ## Avance 1
 #### La escena a realizar será en base a la siguiente fotografia:
 ![Foto prensa](./frenchpress.jpg)
@@ -23,5 +23,10 @@ La escena consiste en una prensa francesa que sube y baja para aumentar la opaci
 ## Escena Final
 #### Una vez aplicada la luz y sombras, asi como más detalle a los materiales, la escena terminó así:
 ![Foto escena final](./escenaFinal.png)
+![Foto escena final 2](./escenaFinal2.png)
 
+### Referencias
+- [Documentación de Three.js](https://threejs.org/docs/)
+- [Curso de Udemy](https://www.udemy.com/course/3d-programming-with-javascript-and-the-threejs-3d-library/)
+- [Creación del vaso estilo vidrio y el café](https://github.com/mrdoob/three.js/issues/644)
 
