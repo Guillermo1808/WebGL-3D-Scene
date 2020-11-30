@@ -2,7 +2,8 @@
 
 #### Guillermo Enrique Valles Villegas A01561722
 Proyecto final para la materia de Graficas Computacionales.\
-Consiste en crear una escena 3D en [WebGL](https://get.webgl.org), con el uso de [Three.js](https://threejs.org).
+Consiste en crear una escena 3D en [WebGL](https://get.webgl.org), con el uso de [Three.js](https://threejs.org).\
+La escena consiste en una prensa francesa que sube y baja para aumentar la opacidad del café.
 ## Avance 1
 #### La escena a realizar será en base a la siguiente fotografia:
 ![Foto prensa](./frenchpress.jpg)
