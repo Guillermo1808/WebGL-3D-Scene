@@ -19,4 +19,8 @@ Consiste en crear una escena 3D en [WebGL](https://get.webgl.org), con el uso de
 #### Mapeo de texturas y tipos de materiales:
 ![Foto avance 3](./escenaAvance3.png)
 
+## Escena Final
+#### Una vez aplicada la luz y sombras, asi como más detalle a los materiales, la escena terminó así:
+![Foto escena final](./escenaFinal.png)
+
 
